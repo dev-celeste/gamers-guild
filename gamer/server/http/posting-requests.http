@@ -1,0 +1,141 @@
+@url = http://localhost:8080/posting
+
+### [ ] Get back all posting records
+
+GET {{url}} HTTP/1.1
+
+### [ ] Get back one posting by their ID
+
+GET {{url}}/5 HTTP/1.1
+
+### [ ] Get back postings by someone's GT
+
+GET {{url}}/player/gt_maria HTTP/1.1
+
+### [ ] Get back postings by game ID
+
+GET {{url}}/game/id/5 HTTP/1.1
+
+### [ ] Get back postings by date
+
+GET {{url}}/date/2023-06-23 HTTP/1.1
+
+### [ ] Post a valid posting 
+
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "gamerId": 1,
+    "gameId": 5,
+    "header": "testing http request",
+    "description": "hello world!",
+    "datePosted": "2023-06-29"
+}
+
+### [ ] Post return a 400 if the posting fails a domain rule - header required
+
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "gamerId": 1,
+    "gameId": 5,
+    "header": "",
+    "description": "hello world!",
+    "datePosted": "2023-06-29"
+}
+
+### [ ] Post return a 400 if the posting fails a domain rule - description required
+
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "gamerId": 1,
+    "gameId": 5,
+    "header": "testing http request",
+    "description": "",
+    "datePosted": "2023-06-29"
+}
+
+### [ ] Post return a 400 if the posting fails a domain rule - no duplicates
+
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "gamerId": 1,
+    "gameId": 5,
+    "header": "testing http request",
+    "description": "hello world!",
+    "datePosted": "2023-06-29"
+}
+
+### [ ] Edit an existing posting
+
+PUT {{url}}/12 HTTP/1.1
+Content-Type: application/json
+
+{
+    "postingId": 12,
+    "gamerId": 1,
+    "gameId": 5,
+    "header": "testing testing 123",
+    "description": "hello world!",
+    "datePosted": "2023-06-29" 
+
+}
+
+### [ ] Put should return 400 if the edit fails a domain rule - no header
+
+PUT {{url}}/12 HTTP/1.1
+Content-Type: application/json
+
+{
+    "postingId": 12,
+    "gamerId": 1,
+    "gameId": 5,
+    "header": "",
+    "description": "hello world!",
+    "datePosted": "2023-06-29"
+
+}
+
+### [ ] Put should return 400 if the edit fails a domain rule - no description
+
+PUT {{url}}/12 HTTP/1.1
+Content-Type: application/json
+
+{
+    "postingId": 12,
+    "gamerId": 1,
+    "gameId": 5,
+    "header": "testing http request",
+    "description": "",
+    "datePosted": "2023-06-29"
+
+}
+
+### [ ] Put should return 400 if the edit fails a domain rule - no duplicates
+
+PUT {{url}}/12 HTTP/1.1
+Content-Type: application/json
+
+{
+    "postingId": 12,
+    "gamerId": 1,
+    "gameId": 5,
+    "header": "Does anyone have any good mods?",
+    "description": "Hey just wondering if anyone has and links to some good mods, thanks.",
+    "datePosted": "2023-06-29"
+
+}
+
+### [ ] Delete a post by their ID
+
+DELETE {{url}}/12 HTTP/1.1
+
+### [ ] Delete should return a 400 when ID is invalid
+
+DELETE {{url}}/99 HTTP/1.1

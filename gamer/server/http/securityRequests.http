@@ -1,0 +1,39 @@
+@url =  http://localhost:8080
+
+# endpoints: POST /authenticate, POST /create_account, POST /refresh_token
+
+### POST /create_account (unhappy path, testing invalid password)
+POST {{url}}/create_account HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "bluejay",
+    "password": "bluejay" 
+}
+
+### POST /create_account (happy path)
+POST {{url}}/create_account HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "bluejay",
+    "password": "bluejay1!" 
+}
+
+### POST /create_account (unhappy path, testing duplicate)
+POST {{url}}/create_account HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "bluejay",
+    "password": "bluejay1!" 
+}
+
+### POST /authenticate (testing jwt_token)
+POST {{url}}/authenticate HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "bluejay",
+    "password": "bluejay1!" 
+}

@@ -1,0 +1,39 @@
+@url =  http://localhost:8080/gamer
+
+GET {{url}} HTTP/1.1
+
+###
+
+GET {{url}}/1 HTTP/1.1
+
+###
+
+GET {{url}}/game/1 HTTP/1.1
+
+###
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "appUserId": 1,
+    "genderType": "OTHER",
+    "gamerTag": "WarpTrotter",
+    "birthDate": "2001-01-01",
+    "bio": "A person shouldn't be on the same level as Trotters!"
+}
+
+###
+PUT {{url}}/9 HTTP/1.1
+Content-Type: application/json
+
+{
+    "gamerId": 9,
+    "appUserId": 1,
+    "genderType": "OTHER",
+    "gamerTag": "WarpTrotter",
+    "birthDate": "2001-01-01",
+    "bio": "A trotter is a trotter is a trotter."
+}
+
+###
+GET {{url}}/9 HTTP/1.1

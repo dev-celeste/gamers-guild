@@ -1,0 +1,499 @@
+/*AFFECTS EVERYWHERE*/
+*{
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+    max-width:100%;
+}
+
+html{
+    font-size:80%;
+}
+
+body {
+    background-color: #4E6C70; 
+    color: #C4C64E;
+    font-size:1.8rem;
+    line-height:1.5;
+    margin-top: 3.5%;
+}
+
+
+
+
+
+
+
+
+
+
+/*===================================================BUTTON STYLING*/
+.button {
+    width: 100px;
+    height: 25px;
+    border: 2px, solid, black;
+    outline: none;
+    color: #fff;
+    background: #4E6C70;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.buttonLg {
+    width: 300px;
+    height: 50px;
+    float: left;
+    z-index: 1;
+    margin-top: -15%;
+    margin-left: 15%;
+    font-size: 2rem;
+}
+
+.aboutButton {
+    width: 300px;
+    height: 50px;
+    font-size: 2rem;
+    margin-left: 40%;
+}
+
+.learnbtns {
+    margin-left: 40%;
+}
+
+.button:before {
+    content: '';
+    background: linear-gradient(45deg, #a1175c, #a05111, #C4C64E, #17978d, #208d7b, #343644, #49ADB6, #E164B3, #921855);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.button:active {
+    color: #000
+}
+
+.button:active:after {
+    background: transparent;
+}
+
+.button:hover:before {
+    opacity: 1;
+}
+
+.button:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #4E6C70;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*============================================Navigation Styling*/
+nav{
+    background-color: #4E6C70;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 7vh;
+    display:inline;
+    overflow: hidden;
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    text-align: center;
+    z-index: 2;
+} 
+nav ul {
+    list-style-type: none;
+    display: inline-block;
+    text-align: left;
+}
+nav ul li {
+    float: left;
+    margin-right: 0.5em;
+    display: inline;
+    padding-right: 3rem;
+    margin-top: 1rem;
+}
+nav ul li a{
+    text-decoration: none;
+    color:#C4C64E;
+}
+
+nav a:hover {
+    text-decoration: none;
+    color: #49ADB6;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*===========================================HOMEPAGE STYLING*/
+.homeContainer{
+    background-image: url('./images/gg_arcadefloor.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.homeSection {
+    background-color: #4E6C70;
+    margin-top: 45%;
+}
+
+.homeInfo {
+    display: flex;
+}
+
+.firstP, .secondP {
+    padding-top: 4%;
+    padding-left: 5%;
+    padding-right:5%;
+}
+
+.introDuoFinder, .introToForum {
+    padding: 3%;
+}
+
+.firstDrawing, .secondDrawing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ourStory {
+    padding: 3%;
+}
+
+.homeH2, .loginH2 {
+    text-align: center;
+    margin-top: 5%;
+    background: red; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #a05111 , yellow, #C4C64E, cyan, #343644, #a1175c);
+    background: -o-linear-gradient(right, #a05111, yellow, #C4C64E, cyan, #343644, #a1175c);
+    background: -moz-linear-gradient(right, #a05111, yellow, #C4C64E, #a1175c, #343644, #a1175c);
+    background: linear-gradient(to right, #a05111, yellow, #C4C64E, #a1175c, #343644, #a1175c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.successStories {
+    display: flex;
+    padding: 3%;
+}
+
+.successStory {
+    padding: 1%;
+}
+
+.person {
+    text-transform: uppercase;
+    background-image: linear-gradient(
+    -225deg,
+    #343644 0%,
+    #a05111 29%,
+    #a1175c 67%,
+    #C4C64E 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+}
+
+@keyframes textclip {
+    to {
+      background-position: 200% center;
+    }
+  }
+
+
+
+
+
+/*===========================================ABOUT PAGE STYLING*/
+.aboutPage {
+    background-image: url('https://images.unsplash.com/photo-1562949615-ee7437a2abb4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="people gaming at an internet cafe');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.about {
+    background-color: #4E6C70;
+    margin-top: 45%;
+}
+
+.aboutGg {
+    text-align: center;
+}
+
+.three {
+    display: flex;
+}
+
+.aboutLeft, .aboutText, .aboutRight {
+    margin-top: 2%;
+    width: 33%;
+}
+
+.aboutText {
+    padding: 2%;
+}
+
+
+
+
+
+
+
+
+
+/*===========================================ABOUT GG STYLING*/
+.aboutContainer {
+    background-image: url('https://images.unsplash.com/photo-1554177255-61502b352de3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.gg {
+    background-color: #4E6C70;
+    margin-top: 45%;
+
+}
+
+.top, .bottom {
+    display: flex;
+}
+
+.ggTopLeft, .ggTopRight, .ggBottomLeft, .ggBottomRight {
+    width: 100%;
+}
+
+.ggTopRight, .ggBottomLeft {
+    padding: 5%;
+}
+
+.allDivs {
+    margin: 20%;
+}
+
+
+
+
+/*===========================================LOGIN STYLING*/
+
+.loginForm {
+    position:relative;
+    margin: 50px auto;
+    width: 380px;
+    height: auto;
+  }
+  
+  input {
+    padding: 16px;
+    border-radius:7px;
+    border:0px;
+    border-radius: 25px;
+    background: rgba(255,255,255,.2);
+    display: block;
+    margin: 15px;
+    width: 300px;  
+    color:white;
+    font-size:18px;
+    height: 54px;
+  }
+  
+  input:focus {
+    outline-color: rgba(0,0,0,0);
+    background: rgba(255,255,255,.95);
+    color: #4E6C70;
+  }
+  
+  .loginButton {
+    width: 300px;
+    height: 50px;
+    font-size: 2rem;
+  }
+  
+  .inputUserIcon {
+    position:absolute;
+    top:68px;
+    right: 80px;
+    color:white;
+  }
+  
+  .inputPassIcon {
+    position:absolute;
+    top:136px;
+    right: 80px;
+    color:white;
+  }
+  
+  input::-webkit-input-placeholder {
+    color: white;
+  }
+  
+  input:focus::-webkit-input-placeholder {
+    color: #4E6C70;
+  }
+
+  .buttons {
+    margin-left: 10%;
+    margin-top: 3%;
+  }
+
+  .loginButton {
+    margin-bottom: 2%;
+  }
+
+  .signup {
+    position:relative;
+    margin: 50px auto;
+    width: 380px;
+    height: auto;
+
+  }
+
+  .signup p {
+    text-align: center;
+  }
+
+  .signupButton {
+    margin-left: 10%;
+  }
+
+
+
+
+/*===========================================SIGNUP STYLING*/
+
+
+
+
+
+
+/*===========================================COMMUNITY STYLING*/
+.searchBarContainer {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+}
+
+.postButton {
+    width: 300px;
+    height: 50px;
+    font-size: 2rem;
+}
+
+#results {
+    width: 300px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 8px #ddd;
+    border-radius: 10px;
+    max-height: 300px;
+    overflow-y: scroll;
+    color: #4E6C70;
+    margin-left: 0.7%;
+    border-radius: 7px;
+    margin-bottom: 1%;
+}
+
+.communityBody, .post {
+    padding: 2%;
+}
+
+
+
+
+/*===========================================FOOTER PAGE STYLING*/
+
+footer {
+    background-color: #4E6C70;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 7vh;
+    display:inline;
+    overflow: hidden;
+    width: 100%; 
+    text-align: center;
+} 
+footer ul {
+    list-style-type: none;
+    display: inline-block;
+    text-align: left;
+}
+footer ul li {
+    float: left;
+    margin-right: 0.5em;
+    display: inline;
+    padding-right: 3rem;
+    margin-top: 1rem;
+}
+footer ul li a{
+    text-decoration: none;
+    color:#C4C64E;
+}
+
+footer a:hover {
+    text-decoration: none;
+    color: #49ADB6;
+}
